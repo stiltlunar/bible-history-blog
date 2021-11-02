@@ -1,14 +1,16 @@
 import React from "react";
+import Footer from "./footer";
+import Header from "./header";
 
 const Layout = ({ pageTitle, children }) => {
   return(
     <div>
-      <header></header>
+      <Header />
       <title>{pageTitle}</title>
       <main>
         {children}
       </main>
-      <footer></footer>
+      <Footer />
     </div>
   )
 }
