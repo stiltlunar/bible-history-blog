@@ -4,14 +4,14 @@ import Header from "./header";
 
 const Layout = ({ pageTitle, children }) => {
   return(
-    <body>
+    <main>
       <title>BibleHistory | {pageTitle}</title>
       <Header />
       <main>
         {children}
       </main>
       <Footer />
-    </body>
+    </main>
   )
 }
 
