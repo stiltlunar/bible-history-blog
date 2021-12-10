@@ -1,23 +1,29 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { graphql } from "gatsby"
 
-const NotFoundPage = () => {
+import Layout from "../components/layout"
+import Seo from "../components/seo"
+
+const NotFoundPage = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata.title
+
   return (
-    <main>
-      <title>Not found</title>
-      <h1>404 Page not found</h1>
-      <p>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        <br />
-        <Link to="/">Go to home page</Link>.
-      </p>
-    </main>
+    <Layout location={location} title={siteTitle}>
+      <Seo title="404: Not Found" />
+      <h1>404: Not Found</h1>
+      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    </Layout>
   )
 }
 
 export default NotFoundPage
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
